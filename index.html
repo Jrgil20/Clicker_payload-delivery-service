@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H4CK3R CLICKER v2.0 - Sistema de Recompensas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="glitch" data-text="H4CK3R CLICKER">H4CK3R CLICKER</h1>
+            <p class="subtitle">Sistema de Entrenamiento Cibernético v2.0</p>
+        </header>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-title">root@security-training:~$</span>
+                <div class="terminal-buttons">
+                    <span class="btn-close"></span>
+                    <span class="btn-minimize"></span>
+                    <span class="btn-maximize"></span>
+                </div>
+            </div>
+            
+            <div class="terminal-body">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">HACKS EJECUTADOS:</span>
+                        <span class="stat-value" id="clickCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">NIVEL DE ACCESO:</span>
+                        <span class="stat-value" id="accessLevel">GUEST</span>
+                    </div>
+                </div>
+
+                <div class="click-area">
+                    <button id="hackButton" class="hack-button">
+                        <span class="button-icon">⚡</span>
+                        <span class="button-text">EJECUTAR HACK</span>
+                        <span class="button-icon">⚡</span>
+                    </button>
+                </div>
+
+                <div class="console-log" id="consoleLog">
+                    <p class="log-entry">> Sistema iniciado...</p>
+                    <p class="log-entry">> Conectando a mainframe...</p>
+                    <p class="log-entry success">> Conexión establecida!</p>
+                    <p class="log-entry">> Esperando comandos...</p>
+                </div>
+
+                <div id="rewardSection" class="reward-section hidden">
+                    <div class="reward-content">
+                        <h2 class="reward-title">🎯 ¡ACCESO ROOT OTORGADO! 🎯</h2>
+                        <p class="reward-text">Has alcanzado 100 hacks exitosos!</p>
+                        <p class="reward-text">Tu herramienta de pentesting está lista:</p>
+                        
+                        <button id="downloadButton" class="download-button">
+                            <span>📥 DESCARGAR HERRAMIENTA</span>
+                            <span class="filename">"not-a-virus-trust-me.exe"</span>
+                        </button>
+
+                        <div class="warning-box">
+                            <p class="warning-title">⚠️ AVISO IMPORTANTE ⚠️</p>
+                            <p class="warning-text">Esta es una herramienta de seguridad avanzada.*</p>
+                            <p class="disclaimer">* Esta aplicación es un EJEMPLO EDUCATIVO de ingeniería social. El archivo descargado es un ejecutable de demostración. En un escenario real, NUNCA ejecutes archivos de fuentes no confiables. Este es un PoC (Proof of Concept) que demuestra cómo el malware puede ser entregado mediante técnicas de social engineering. NO CONTIENE MALWARE REAL, pero ilustra cómo los atacantes pueden usar interfaces atractivas para engañar usuarios.</p>
+                            <p class="tiny-disclaimer">⚠️ ADVERTENCIA: Este archivo podría ser detectado como amenaza por tu antivirus porque simula comportamiento de descarga de ejecutables. Esto es intencional para fines educativos de ciberseguridad. ⚠️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p class="footer-text">🔒 Developed for Cybersecurity Training Purposes | PoC v2.0</p>
+            <p class="footer-disclaimer">⚠️ DISCLAIMER: Este proyecto es puramente educativo y demuestra técnicas de ingeniería social utilizadas en ciberataques. Ningún malware real está incluido.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
