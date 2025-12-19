@@ -260,9 +260,13 @@ setTimeout(() => {
     addLogMessage("Sistema listo. Comienza hackeando!", 'success');
 }, 1000);
 
-// Cursor effect (optional enhancement)
+// Cursor effect (optional enhancement) - throttled for performance
+let lastSparkTime = 0;
 document.addEventListener('mousemove', (e) => {
-    if (Math.random() > 0.98) {
+    const now = Date.now();
+    // Throttle: only create spark if 100ms passed and random chance
+    if (now - lastSparkTime > 100 && Math.random() > 0.98) {
+        lastSparkTime = now;
         const spark = document.createElement('div');
         spark.className = 'spark';
         spark.style.cssText = `
