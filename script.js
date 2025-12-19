@@ -3,6 +3,12 @@ let clickCount = 0;
 const CLICKS_TO_WIN = 100;
 let hasWon = false;
 
+// Configuration constants
+const MAX_CONSOLE_MESSAGES = 20;
+const SPARK_THROTTLE_MS = 100;
+const SPARK_PROBABILITY = 0.98; // Math.random() > 0.98 = 2% chance
+const SPARK_ANIMATION_DURATION_MS = 1000;
+
 // DOM elements
 const hackButton = document.getElementById('hackButton');
 const clickCountElement = document.getElementById('clickCount');
@@ -55,9 +61,9 @@ function addLogMessage(message, type = '') {
     // Auto-scroll to bottom
     consoleLog.scrollTop = consoleLog.scrollHeight;
     
-    // Keep only last 20 messages
-    while (consoleLog.children.length > 20) {
-        consoleLog.removeChild(consoleLog.firstChild);
+    // Keep only last MAX_CONSOLE_MESSAGES messages
+    while (consoleLog.children.length > MAX_CONSOLE_MESSAGES) {
+        consoleLog.firstChild.remove();
     }
 }
 
@@ -217,7 +223,7 @@ Remember: Real malware looks exactly like this - trustworthy,
     
     // Cleanup
     setTimeout(() => {
-        document.body.removeChild(a);
+        a.remove();
         window.URL.revokeObjectURL(url);
     }, 100);
     
@@ -264,8 +270,8 @@ setTimeout(() => {
 let lastSparkTime = 0;
 document.addEventListener('mousemove', (e) => {
     const now = Date.now();
-    // Throttle: only create spark if 100ms passed and random chance
-    if (now - lastSparkTime > 100 && Math.random() > 0.98) {
+    // Throttle: only create spark if SPARK_THROTTLE_MS passed and random chance
+    if (now - lastSparkTime > SPARK_THROTTLE_MS && Math.random() > SPARK_PROBABILITY) {
         lastSparkTime = now;
         const spark = document.createElement('div');
         spark.className = 'spark';
@@ -279,12 +285,12 @@ document.addEventListener('mousemove', (e) => {
             background: #00ff00;
             box-shadow: 0 0 10px #00ff00;
             border-radius: 50%;
-            animation: sparkFade 1s ease-out forwards;
+            animation: sparkFade ${SPARK_ANIMATION_DURATION_MS}ms ease-out forwards;
             z-index: 9999;
         `;
         document.body.appendChild(spark);
         
-        setTimeout(() => spark.remove(), 1000);
+        setTimeout(() => spark.remove(), SPARK_ANIMATION_DURATION_MS);
     }
 });
 
