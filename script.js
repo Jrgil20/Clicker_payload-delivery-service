@@ -15,7 +15,8 @@ const clickCountElement = document.getElementById('clickCount');
 const accessLevelElement = document.getElementById('accessLevel');
 const consoleLog = document.getElementById('consoleLog');
 const rewardSection = document.getElementById('rewardSection');
-const downloadButton = document.getElementById('downloadButton');
+const copyButton = document.getElementById('copyButton');
+const curlCommand = document.getElementById('curlCommand');
 
 // Hacking messages for console
 const hackMessages = [
@@ -117,7 +118,7 @@ function handleWin() {
     addLogMessage("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", 'success');
     addLogMessage("🎯 ACCESO ROOT OBTENIDO! 🎯", 'success');
     addLogMessage("Sistema completamente comprometido!", 'success');
-    addLogMessage("Herramienta de pentesting disponible...", 'success');
+    addLogMessage("Comando de instalación disponible...", 'success');
     addLogMessage("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", 'success');
     
     // Show reward section
@@ -129,117 +130,38 @@ function handleWin() {
     hackButton.style.cursor = 'not-allowed';
 }
 
-// Generate and download file
-function downloadFile() {
-    addLogMessage("Generando payload...", 'warning');
-    addLogMessage("Compilando ejecutable...", 'warning');
+// Copy command to clipboard
+function copyCommand() {
+    addLogMessage("Copiando comando...", 'warning');
     
-    // Create a fake executable content (just text for demo purposes)
-    const fileContent = `
-╔═══════════════════════════════════════════════════════════════╗
-║                                                               ║
-║     H4CK3R TOOL v2.0 - Advanced Penetration Testing Suite    ║
-║                                                               ║
-║                ⚠️  PROOF OF CONCEPT  ⚠️                       ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
-
-[!] EDUCATIONAL DISCLAIMER [!]
-
-This file is part of a cybersecurity education demonstration.
-
-This is a Proof of Concept (PoC) showing how malware can be 
-delivered through social engineering tactics.
-
-⚠️ WARNING: This demonstrates how attackers use attractive
-interfaces to trick users into downloading and executing files.
-
-In a real attack scenario, this could be actual malware.
-NEVER execute files from untrusted sources!
-
-═══════════════════════════════════════════════════════════════
-
-FILE INFORMATION:
-- Name: not-a-virus-trust-me.exe
-- Type: Demonstration File
-- Purpose: Educational/Training
-- Contains: No actual malicious code
-- Risk Level: 0 (Educational only)
-
-═══════════════════════════════════════════════════════════════
-
-WHAT THIS DEMONSTRATES:
-
-1. Social Engineering: Using gaming mechanics to engage users
-2. Trust Exploitation: Creating false sense of legitimacy
-3. Deceptive UI: Professional-looking interface to build trust
-4. Call to Action: Encouraging users to download/execute files
-5. Disclaimer Neglect: Users often ignore warnings (like this one)
-
-═══════════════════════════════════════════════════════════════
-
-REAL ATTACK INDICATORS YOU SHOULD WATCH FOR:
-
-✗ Unexpected file downloads
-✗ Files with suspicious names (like "not-a-virus-trust-me.exe")
-✗ Executable files from web games/applications
-✗ Websites encouraging you to disable antivirus
-✗ Too-good-to-be-true rewards or prizes
-✗ Urgent calls to action
-✗ Requests to execute downloaded files
-
-═══════════════════════════════════════════════════════════════
-
-PROTECTION TIPS:
-
-✓ Always verify file sources
-✓ Keep antivirus updated
-✓ Don't disable security features
-✓ Be skeptical of unexpected downloads
-✓ Use sandboxed environments for testing
-✓ Verify digital signatures
-✓ Research before executing unknown files
-
-═══════════════════════════════════════════════════════════════
-
-This PoC created for: Cybersecurity Training & Awareness
-Repository: Clicker_payload-delivery-service
-Purpose: Demonstrate social engineering attack vectors
-
-Remember: Real malware looks exactly like this - trustworthy,
-          professional, and convincing. Stay vigilant!
-
-═══════════════════════════════════════════════════════════════
-`;
-
-    // Create blob and download
-    const blob = new Blob([fileContent], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'not-a-virus-trust-me.exe';
-    document.body.appendChild(a);
-    a.click();
+    const commandText = curlCommand.textContent;
     
-    // Cleanup
-    setTimeout(() => {
-        a.remove();
-        window.URL.revokeObjectURL(url);
-    }, 100);
-    
-    addLogMessage("✅ Archivo descargado exitosamente!", 'success');
-    addLogMessage("⚠️ Recuerda: NUNCA ejecutes archivos de fuentes no confiables!", 'warning');
-    addLogMessage("Esto es solo una demostración educativa.", 'warning');
-    
-    // Update button
-    downloadButton.textContent = '✓ DESCARGADO';
-    downloadButton.disabled = true;
-    downloadButton.style.opacity = '0.6';
+    // Copy to clipboard
+    navigator.clipboard.writeText(commandText).then(() => {
+        addLogMessage("✅ Comando copiado al portapapeles!", 'success');
+        addLogMessage("⚠️ ADVERTENCIA: Este comando ejecuta software real!", 'warning');
+        addLogMessage("Solo úsalo en entornos de prueba controlados.", 'warning');
+        
+        // Update button
+        copyButton.textContent = '✓ COPIADO';
+        copyButton.disabled = true;
+        copyButton.style.opacity = '0.6';
+        
+        // Reset button after 3 seconds
+        setTimeout(() => {
+            copyButton.textContent = '📋 COPIAR';
+            copyButton.disabled = false;
+            copyButton.style.opacity = '1';
+        }, 3000);
+    }).catch(err => {
+        addLogMessage("❌ Error al copiar. Copia manualmente el comando.", 'error');
+        console.error('Failed to copy:', err);
+    });
 }
 
 // Event listeners
 hackButton.addEventListener('click', handleHackClick);
-downloadButton.addEventListener('click', downloadFile);
+copyButton.addEventListener('click', copyCommand);
 
 // Easter egg: Konami code
 let konamiCode = [];

